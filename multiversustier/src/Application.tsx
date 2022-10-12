@@ -66,9 +66,10 @@ interface RankListComponentProps {
 }
 const RankListComponent = ({ characterList }: RankListComponentProps) => {
   console.log(characterList);
-
-  const renderCharacterList = () => {
-    return characterList?.map((img: string, index: number) => {
+  const handleModalDisplay = ()=> {
+    
+  }
+  const renderCharacterList = characterList?.map((img: string, index: number) => {
       return (
         <img
           key={index}
@@ -76,17 +77,18 @@ const RankListComponent = ({ characterList }: RankListComponentProps) => {
           src={characterImageArray[index]}
           data-value={img}
           alt={img}
+          onClick={handleModalDisplay}
         />
       );
     });
-  };
+  
   return (
     <div className=" tier-full-list">
       <div className="tier-heading-wrapper">
         <p className="tier-heading">List:</p>
       </div>
       <div className="tier-full-body avatar-wrapper">
-        {renderCharacterList()}
+        {renderCharacterList}
       </div>
     </div>
   );
