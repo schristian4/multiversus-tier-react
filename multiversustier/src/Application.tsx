@@ -70,6 +70,44 @@ export const characterList_init_Keys: any = [
 	{ 16: 'iron_giant' },
 ]
 
+export const characterImageArray_init_Keys: any = [
+	{ 0: 'batman' },
+	{ 1: 'finn' },
+	{ 2: 'superman' },
+	{ 3: 'bugs' },
+	{ 4: 'shaggy' },
+	{ 5: 'jake' },
+	{ 6: 'lebron' },
+	{ 7: 'harley' },
+	{ 8: 'taz' },
+	{ 9: 'arya' },
+	{ 10: 'steven' },
+	{ 11: 'velma' },
+	{ 12: 'reindog' },
+	{ 13: 'garnet' },
+	{ 14: 'wonder_woman' },
+	{ 15: 'tom_and_jerry' },
+	{ 16: 'iron_giant' },
+]
+export const characterImageArray_init_keys = [
+	{ 'batman':batman},
+	{ 'finn':finn},
+	{ 'superman':superman},
+	{ 'bugs':bugs},
+	{ 'shaggy':shaggy},
+	{ 'jake':jake},
+	{ 'lebron':lebron},
+	{ 'harley':harley},
+	{ 'taz':taz},
+	{ 'arya':arya},
+	{ 'steven':steven},
+	{ 'velma':velma},
+	{ 'reindog':reindog},
+	{ 'garnet':garnet},
+	{ 'wonder_woman':wonder_woman},
+	{ 'tom_and_jerry':tom_and_jerry},
+	{ 'iron_giant':iron_giant},
+]
 export const characterImageArray = [
 	batman,
 	finn,
@@ -148,8 +186,24 @@ const Application = () => {
 					setTierRowCharacterList(tempArray)
 				}
 			}
-			// let newCharacterList = [...characterList]
-			// for (let z = 0; z < newCharacterList.length; z++) {
+			console.log(characterList)
+			console.log(selectedCharacter)
+if(selectedCharacter !== ''){ 
+
+	let newCharacterList = [...characterList]
+	for (let z = 0; z < newCharacterList.length; z++) {
+		if(newCharacterList[z] === selectedCharacter){ 
+			console.log("found match index: ", z )
+			debugger
+			console.log("newlist: ", newCharacterList.splice(z, 1) )
+			
+			setCharacterList(newCharacterList)
+		}
+	}
+	
+}
+			
+
 			// 	let rank_Key: any = Object.keys(characterList_init_Keys[z]);
 			// 	for (let y = 0; y < rank_Key.length; y++) {
 

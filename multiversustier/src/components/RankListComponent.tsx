@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction } from "react"
-import { characterImageArray } from "../Application"
+import { Dispatch, SetStateAction, useEffect } from "react"
+import { characterImageArray, characterImageArray_init_keys } from "../Application"
 
 interface RankListComponentProps {
 	characterList?: string[]
@@ -13,17 +13,33 @@ const RankListComponent = ({ characterList, setToggleModalDisplay, setSelectedCh
 		setSelectedCharacter(selectedCharacter)
 		setToggleModalDisplay(true)
 	}
-	const renderCharacterList = characterList?.map((character: string, index: number) => {
-		return (
-			<img
-				key={index}
-				className="characterIcon"
-				src={characterImageArray[index]}
-				// data-value={character}
-				alt={character}
-				onClick={() => handleModalDisplay(character)}
-			/>
-		)
+	useEffect(() => {
+		console.log("rerender list", characterList)
+	}, [characterList])
+	
+	const renderCharacterList = characterList?.map((character: any, index: number) => {
+		for(let i = 0; i < characterImageArray_init_keys.length; i++){
+			let characterFound = Object.keys(characterImageArray_init_keys[i])[0]
+			if(character === characterFound){
+				let char: string = character
+				let characterImageArray: any = characterImageArray_init_keys[i]
+				let imageSrc: any = characterImageArray[char]
+				return (
+					<img
+						key={index}
+						className="characterIcon"
+						src={imageSrc}
+						// data-value={character}
+						alt={character}
+						onClick={() => handleModalDisplay(character)}
+					/>
+				)
+			}
+
+			// console.log(characterImageArray_init_keys[i])
+		}
+
+		
 	})
 
 
