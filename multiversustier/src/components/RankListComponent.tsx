@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction, useEffect } from "react"
-import { characterImageArray, characterImageArray_init_keys } from "../Application"
+import { Dispatch, SetStateAction, useEffect } from 'react'
+import {  characterImageArray_init_keys } from '../Application'
 
 interface RankListComponentProps {
 	characterList?: string[]
@@ -7,20 +7,19 @@ interface RankListComponentProps {
 	setSelectedCharacter: Dispatch<SetStateAction<string>>
 }
 
-
 const RankListComponent = ({ characterList, setToggleModalDisplay, setSelectedCharacter }: RankListComponentProps) => {
 	const handleModalDisplay = (selectedCharacter: string) => {
 		setSelectedCharacter(selectedCharacter)
 		setToggleModalDisplay(true)
 	}
 	useEffect(() => {
-		console.log("rerender list", characterList)
+		console.log('Rank list', characterList)
 	}, [characterList])
-	
+
 	const renderCharacterList = characterList?.map((character: any, index: number) => {
-		for(let i = 0; i < characterImageArray_init_keys.length; i++){
+		for (let i = 0; i < characterImageArray_init_keys.length; i++) {
 			let characterFound = Object.keys(characterImageArray_init_keys[i])[0]
-			if(character === characterFound){
+			if (character === characterFound) {
 				let char: string = character
 				let characterImageArray: any = characterImageArray_init_keys[i]
 				let imageSrc: any = characterImageArray[char]
@@ -35,13 +34,8 @@ const RankListComponent = ({ characterList, setToggleModalDisplay, setSelectedCh
 					/>
 				)
 			}
-
-			// console.log(characterImageArray_init_keys[i])
 		}
-
-		
 	})
-
 
 	return (
 		<div className=" tier-full-list">

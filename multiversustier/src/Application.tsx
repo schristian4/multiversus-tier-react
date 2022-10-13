@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 
-
 import batman from './image/batman.webp'
 import finn from './image/finn.webp'
 import superman from './image/superman.webp'
@@ -90,23 +89,23 @@ export const characterImageArray_init_Keys: any = [
 	{ 16: 'iron_giant' },
 ]
 export const characterImageArray_init_keys = [
-	{ 'batman':batman},
-	{ 'finn':finn},
-	{ 'superman':superman},
-	{ 'bugs':bugs},
-	{ 'shaggy':shaggy},
-	{ 'jake':jake},
-	{ 'lebron':lebron},
-	{ 'harley':harley},
-	{ 'taz':taz},
-	{ 'arya':arya},
-	{ 'steven':steven},
-	{ 'velma':velma},
-	{ 'reindog':reindog},
-	{ 'garnet':garnet},
-	{ 'wonder_woman':wonder_woman},
-	{ 'tom_and_jerry':tom_and_jerry},
-	{ 'iron_giant':iron_giant},
+	{ batman: batman },
+	{ finn: finn },
+	{ superman: superman },
+	{ bugs: bugs },
+	{ shaggy: shaggy },
+	{ jake: jake },
+	{ lebron: lebron },
+	{ harley: harley },
+	{ taz: taz },
+	{ arya: arya },
+	{ steven: steven },
+	{ velma: velma },
+	{ reindog: reindog },
+	{ garnet: garnet },
+	{ wonder_woman: wonder_woman },
+	{ tom_and_jerry: tom_and_jerry },
+	{ iron_giant: iron_giant },
 ]
 export const characterImageArray = [
 	batman,
@@ -127,27 +126,26 @@ export const characterImageArray = [
 	tom_and_jerry,
 	iron_giant,
 ]
-
 const Application = () => {
 	const [characterList, setCharacterList] = useState<string[]>([
-	'batman',
-	'finn',
-	'superman',
-	'bugs',
-	'shaggy',
-	'jake',
-	'lebron',
-	'harley',
-	'taz',
-	'arya',
-	'steven',
-	'velma',
-	'reindog',
-	'garnet',
-	'wonder_woman',
-	'tom_and_jerry',
-	'iron_giant',
-])
+		'batman',
+		'finn',
+		'superman',
+		'bugs',
+		'shaggy',
+		'jake',
+		'lebron',
+		'harley',
+		'taz',
+		'arya',
+		'steven',
+		'velma',
+		'reindog',
+		'garnet',
+		'wonder_woman',
+		'tom_and_jerry',
+		'iron_giant',
+	])
 	const [tierListKeys, setTierListKeys] = useState<string[]>(tierListKeys_init)
 	const [tierRowCharacterList, setTierRowCharacterList] = useState<any>([
 		{ S: [] },
@@ -177,8 +175,6 @@ const Application = () => {
 			setSelectedTierRank('')
 		}
 		function updateTierList() {
-			console.log('updateTierList')
-			// let selectedCharacterObject = { [selectedTierRank]: selectedCharacter}
 			let tempArray = [...tierRowCharacterList]
 			for (let i = 0; i < tierRowCharacterList.length; i++) {
 				if (Object.keys(tierRowCharacterList[i])[0] === selectedTierRank) {
@@ -186,36 +182,15 @@ const Application = () => {
 					setTierRowCharacterList(tempArray)
 				}
 			}
-			console.log(characterList)
-			console.log(selectedCharacter)
-if(selectedCharacter !== ''){ 
-
-	let newCharacterList = [...characterList]
-	for (let z = 0; z < newCharacterList.length; z++) {
-		if(newCharacterList[z] === selectedCharacter){ 
-			console.log("found match index: ", z )
-			debugger
-			console.log("newlist: ", newCharacterList.splice(z, 1) )
-			
-			setCharacterList(newCharacterList)
-		}
-	}
-	
-}
-			
-
-			// 	let rank_Key: any = Object.keys(characterList_init_Keys[z]);
-			// 	for (let y = 0; y < rank_Key.length; y++) {
-
-			// 		let foundCharacter = characterList_init_Keys[z][rank_Key]
-			// 		if(foundCharacter === selectedCharacter){
-			// 			console.log("rank_Key", rank_Key)
-			// 			debugger
-			// 			// newCharacterList[i][rank_Key].splice(rank_Key, 1);
-			// 		}
-			// 	}
-			// }
-			// setTierRowCharacterList(newCharacterList)
+			if (selectedCharacter !== '') {
+				let newCharacterList = [...characterList]
+				for (let z = 0; z < newCharacterList.length; z++) {
+					if (newCharacterList[z] === selectedCharacter) {
+						newCharacterList.splice(z, 1)
+						setCharacterList(newCharacterList)
+					}
+				}
+			}
 		}
 		if (toggleReset === true) {
 			handleReset()
@@ -224,6 +199,7 @@ if(selectedCharacter !== ''){
 			updateTierList()
 		}
 		resetSelection()
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [selectedTierRank, toggleReset])
 	return (
 		<div className="main-container glassmorph">

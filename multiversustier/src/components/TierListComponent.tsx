@@ -8,11 +8,9 @@ interface TierListProps {
 	tierRowCharacterList: TierRowShape[]
 	tierListKeys: string[]
 	characterList?: string[]
-	// tierList: {}[]
-	// characterList: string[]
 }
 
-const TierListComponent = ({ tierRowCharacterList, tierListKeys, characterList }: TierListProps) => {
+const TierListComponent = ({ tierRowCharacterList}: TierListProps) => {
 	let RenderTierRow = tierRowCharacterList.map((tierRow: { [x: string]: string[] }, index_x: number) => {
 		let tierRowKey = Object.keys(tierRow)[0]
 		let charcerRow = tierRow[tierRowKey].map((char: string, index: number) => {
@@ -30,7 +28,6 @@ const TierListComponent = ({ tierRowCharacterList, tierListKeys, characterList }
 				<img
 					key={index}
 					className="avatar characterRemoveIcon"
-					// src={characterImageArray[index]}
 					src={characterImageArray[imageLink]}
 					alt={char}></img>
 			)
@@ -42,14 +39,14 @@ const TierListComponent = ({ tierRowCharacterList, tierListKeys, characterList }
 				<div className="tier-heading-wrapper">
 					<p className="tier-heading">{tierRowKey}:</p>
 				</div>
-				<div className="tier-body avatar-wrapper">{charcerRow /* ${characters.join(",").replace(/,/g, "")} */}</div>
+				<div className="tier-body avatar-wrapper">{charcerRow}</div>
 			</div>
 		)
 	})
 
 	useEffect(() => {
-		console.log('render charlist: ', tierRowCharacterList)
-	}, [])
+		console.log('Tier Row:', tierRowCharacterList)
+	}, [tierRowCharacterList])
 
 	return <>{RenderTierRow}</>
 }

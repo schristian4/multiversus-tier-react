@@ -1,12 +1,9 @@
-import React, { Dispatch, SetStateAction } from 'react'
-
-
+import { Dispatch, SetStateAction } from 'react'
 interface RankModalProps {
 	toggleModalDisplay: boolean
 	setToggleModalDisplay: Dispatch<SetStateAction<boolean>>
 	setSelectedTierRank: Dispatch<SetStateAction<string>>
 	tierListKeys: string[]
-	// selectedCharacter: string
 }
 
 const RankModalComponent = ({
