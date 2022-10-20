@@ -1,7 +1,10 @@
 interface HeaderComponentProps {
   handleReset: () => void;
+  handleInputChange: (evt: any ) => void
+  searchInputValue: string
 }
-const HeaderComponent = ({ handleReset }: HeaderComponentProps) => {
+
+const HeaderComponent = ({ handleReset, handleInputChange, searchInputValue }: HeaderComponentProps) => {
   return (
     <div id="header-container">
       <div className="header-wrapper">
@@ -18,6 +21,8 @@ const HeaderComponent = ({ handleReset }: HeaderComponentProps) => {
           type="text"
           className="input-filter-project"
           placeholder="Search for character..."
+          value={searchInputValue}
+          onChange={handleInputChange}      
         />
       </div>
     </div>

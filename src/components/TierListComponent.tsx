@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { characterImageArray, characterList_init_Keys } from '../Application'
+import { characterImageArray, characterList_init_Keys } from '../interface'
 
 interface TierRowShape {
 	[key: string]: string[]
