@@ -14,3 +14,4 @@ This project was inspired by a discussion with my friends on what we rank as the
 - Click on the "Reset Row" button to start the ranking over again.
 - Click Characters and click Tier to assign them to a Tier Row. 
 
+![multitier ](https://user-images.githubusercontent.com/28473506/234339480-38c54a66-6785-47f2-8576-55b6bfd5fc31.png)
